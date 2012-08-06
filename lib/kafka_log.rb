@@ -14,8 +14,10 @@ class KafkaLog
   def start(producer)
     Thread.new do
       while batch = @queue.pop
-        batch.each do |message|
-          producer.send(Kafka::Message.new(message))
+        producer.batch do
+          batch.each do |message|
+            producer.send(Kafka::Message.new(message))
+          end
         end
       end
     end
