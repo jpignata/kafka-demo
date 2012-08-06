@@ -1,0 +1,9 @@
+A sample application to demonstrate a potential Kafka implmentation.
+
+Files:
+
+* lib/kafka_log.rb: ferries messages to Kafka
+* app/models/event_handler.rb: API for controllers and models to fire log events
+* app/controllers/application_controller.rb: flushes the Kafka log after each request
+* app/controllers/posts_controller.rb: scaffold generated sample posts controller with some Kafka events
+* config/initializers/kafka_log.rb: starts the Kafka delivery thread
